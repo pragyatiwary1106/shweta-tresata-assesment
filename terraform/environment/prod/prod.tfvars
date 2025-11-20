@@ -1,0 +1,9 @@
+subscription-id = "3ceca0c5-c2dd-4175-aa75-80d12e1b88cb"
+resource_group_name = "prod-rg"
+location    = "West Europe"
+aks_name    = "Akscluster-prod-pragya"
+dns_prefix  = "kubepragya-prod"
+node_name   = "kube-worker-prod1"
+node_count  = 1
+vm_size = "Standard_D2_v2"
+environment     = "prod"

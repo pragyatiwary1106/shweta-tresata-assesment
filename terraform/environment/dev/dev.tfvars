@@ -1,0 +1,9 @@
+subscription_id = "3ceca0c5-c2dd-4175-aa75-80d12e1b88cb"
+resource_group_name = "dev-rg"
+location    = "West Europe"
+aks_name    = "Akscluster-pragya"
+dns_prefix  = "kubepragya"
+node_name   = "kubeworker1"
+node_count  = 1
+vm_size = "Standard_B2s"
+environment     = "Dev"

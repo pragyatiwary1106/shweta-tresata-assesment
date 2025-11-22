@@ -44,3 +44,8 @@ variable "environment" {
   description = "Environment tag"
   type        = string
 }
+
+variable "subnet_id" {
+  description = "ID of the subnet for AKS nodes"
+  type        = string
+}

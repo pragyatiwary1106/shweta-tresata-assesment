@@ -1,10 +1,27 @@
-variable "subscription_id" {
-    description = "subscription id"
-type = string
+variable "vnet_name" {
+  description = "Name of the virtual network"
+  type        = string
 }
 
-variable "resource_group_name" {
-  description = "Name of the resource group"
+variable "vnet_address_space" {
+  description = "Address space for the virtual network"
+  type        = string
+  default     = "10.0.0.0/16"
+}
+
+variable "subnet_name" {
+  description = "Name of the subnet"
+  type        = string
+}
+
+variable "subnet_address_prefix" {
+  description = "Address prefix for the subnet"
+  type        = string
+  default     = "10.0.1.0/24"
+}
+
+variable "nsg_name" {
+  description = "Name of the network security group"
   type        = string
 }
 
@@ -13,33 +30,8 @@ variable "location" {
   type        = string
 }
 
-variable "aks_name" {
-  description = "Name of the AKS cluster"
-  type        = string
-}
-
-variable "dns_prefix" {
-  description = "DNS prefix for AKS cluster"
-  type        = string
-}
-
-variable "node_name" {
-  description = "Name of the node pool"
-  type        = string
-}
-
-variable "min_count" {
-  description = "Minimum number of nodes"
-  type        = number
-}
-
-variable "max_count" {
-  description = "Maximum number of nodes"
-  type        = number
-}
-
-variable "vm_size" {
-  description = "VM size for nodes"
+variable "resource_group_name" {
+  description = "Name of the resource group"
   type        = string
 }
 
@@ -63,6 +55,3 @@ variable "security_rules" {
   }))
   default = []
 }
-
-
-

@@ -4,6 +4,54 @@ location    = "West Europe"
 aks_name    = "Akscluster-pragya"
 dns_prefix  = "kubepragya"
 node_name   = "kubeworker1"
-node_count  = 1
+min_count   = 1
+max_count   = 2
 vm_size = "Standard_B2s"
 environment     = "Dev"
+
+security_rules = [
+  {
+    name                       = "AllowHTTPS"
+    priority                   = 1001
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "443"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  },
+  {
+    name                       = "AllowHTTP"
+    priority                   = 1002
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "80"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  },
+  {
+    name                       = "AllowSSH"
+    priority                   = 1003
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "22"
+    source_address_prefix      = "10.0.0.0/16"
+    destination_address_prefix = "*"
+  },
+  {
+    name                       = "DenyAll"
+    priority                   = 4096
+    direction                  = "Inbound"
+    access                     = "Deny"
+    protocol                   = "*"
+    source_port_range          = "*"
+    destination_port_range     = "*"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+]
